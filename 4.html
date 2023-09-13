@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  // Цикл в циклі
+  // - Є масив coursesArray котрий лежить в arrays.js (на цей момент ви вже знаєте де він знаходиться)
+  //
+  // Створити для кожного елементу масиву свій блок, блок розділити блоками, в яких будуть зберігатись значення окремих властивостей, для властивості modules зробити список з елементами
+  // Приклад структири знаходиться у файлі example.png який лежить в папці з поточним фйлом
+
+  let coursesArray = [
+    {
+      title: 'JavaScript Complex',
+      monthDuration: 5,
+      hourDuration: 909,
+      modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js']
+    },
+    {
+      title: 'Java Complex',
+      monthDuration: 6,
+      hourDuration: 909,
+      modules: ['html',
+        'css',
+        'js',
+        'mysql',
+        'mongodb',
+        'angular',
+        'aws',
+        'docker',
+        'git',
+        'java core',
+        'java advanced']
+    },
+    {
+      title: 'Python Complex',
+      monthDuration: 6,
+      hourDuration: 909,
+      modules: ['html',
+        'css',
+        'js',
+        'mysql',
+        'mongodb',
+        'angular',
+        'aws',
+        'docker',
+        'python core',
+        'python advanced']
+    },
+    {
+      title: 'QA Complex',
+      monthDuration: 4,
+      hourDuration: 909,
+      modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'git', 'QA/QC']
+    },
+    {
+      title: 'FullStack',
+      monthDuration: 7,
+      hourDuration: 909,
+      modules: ['html',
+        'css',
+        'js',
+        'mysql',
+        'mongodb',
+        'react',
+        'angular',
+        'aws',
+        'docker',
+        'git',
+        'node.js',
+        'python',
+        'java']
+    },
+    {
+      title: 'Frontend',
+      monthDuration: 4,
+      hourDuration: 909,
+      modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
+    }
+  ]
+
+  coursesArray.forEach((el) => {
+
+    let div = document.createElement('div');
+    div.classList.add('main');
+    document.body.appendChild(div);
+
+    let title = document.createElement('div');
+    title.classList.add('title');
+    div.appendChild(title);
+
+    let h3 = document.createElement('h3');
+    h3.innerText = el.title;
+    title.appendChild(h3);
+
+    let durationContainer = document.createElement('div');
+    durationContainer.classList.add('durationContainer');
+    div.appendChild(durationContainer);
+    durationContainer.style.display = 'flex';
+    durationContainer.style.width = '50px';
+    durationContainer.style.justifyContent = 'space-between'
+
+    let monthDuration = document.createElement('div');
+    monthDuration.classList.add('monthDuration');
+    durationContainer.appendChild(monthDuration);
+
+    let p1 = document.createElement('p');
+    p1.innerText = el.monthDuration;
+    monthDuration.appendChild(p1);
+
+    let hourDuration = document.createElement('div');
+    hourDuration.classList.add('hourDuration');
+    durationContainer.appendChild(hourDuration);
+
+    let p2 = document.createElement('p');
+    p2.innerText = el.hourDuration;
+    hourDuration.appendChild(p2);
+
+    let modules = document.createElement('div');
+    modules.classList.add('modules');
+    div.appendChild(modules);
+
+    let ul = document.createElement('ul');
+    modules.appendChild(ul);
+
+    el.modules.forEach((mod) => {
+      let li = document.createElement('li');
+      li.innerText = mod
+      ul.appendChild(li)
+    });
+
+  });
+
+  console.log(coursesArray.length)
+
+</script>
+</body>
+</html>
